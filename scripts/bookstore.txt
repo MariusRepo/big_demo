@@ -1,0 +1,28 @@
+Bookstore
+
+The app will have one common business flow which will be called from multiple sources
+that we will showcase
+
+Remote Queues
+	Local queue
+
+MQInputs -> some MQOut
+	Remote
+	Local
+
+Mapping nodes 
+	(maybe + 1 ESQL node with data mapping)
+Transformation nodes from 1 format to another
+DFDL on nodes to ensure the data structure is valid
+
+1 file node as input 
+Maybe file output node to write some file to the disk (logs/erros/exceptions)
+
+1 database node that connects to DB and does some query
+
+accepting REST calls -> triggering flows
+add routing labels
+
+add exception handling TRY/CATCH/THROW
+
+have a trigger mechanism with a timer node
