@@ -1,0 +1,21 @@
+BROKER SCHEMA book
+
+CREATE DATABASE MODULE insert_books_Database
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		
+		DECLARE booksRef REFERENCE TO Root.XMLNSC.books;   
+        DECLARE bookRef REFERENCE TO booksRef.book[1];
+		
+		WHILE LASTMOVE(bookRef) DO
+    
+        	INSERT INTO Database.big.book (title, author, price)
+            VALUES (bookRef.name, bookRef.author, bookRef.price);
+
+            MOVE bookRef NEXTSIBLING;
+        END WHILE;   
+		
+		RETURN TRUE;
+	END;
+
+END MODULE;

@@ -1,0 +1,19 @@
+BROKER SCHEMA book
+
+CREATE COMPUTE MODULE search_book
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE search_query CHARACTER;
+		DECLARE result ROW;
+		DECLARE query CHARACTER;
+		
+		SET search_query = InputLocalEnvironment.HTTP.Input.QueryString.query;
+		
+		SET query = 'SELECT * FROM big.book AS books WHERE books.title LIKE "%' || search_query || '%" OR books.author LIKE "%' || search_query || '"';
+	
+		SET OutputRoot.JSON.Data.books.book[] = PASSTHRU(query);
+
+		RETURN TRUE;
+	END;
+
+END MODULE;

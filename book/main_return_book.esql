@@ -1,0 +1,50 @@
+BROKER SCHEMA book
+
+
+CREATE COMPUTE MODULE main_return_book
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE query_string REFERENCE TO InputRoot.JSON.Data;
+		
+		DECLARE query_user INTEGER;
+		SET query_user = query_string.user;
+		DECLARE query_book INTEGER;
+		SET query_book = query_string.book;	
+	
+		DECLARE query CHARACTER;
+		SET query = 'SELECT * FROM big.borrowed_books AS borrowed WHERE borrowed.book_id = ' || CAST(query_book AS CHARACTER) || ' AND borrowed.user_id = ' || CAST(query_user AS CHARACTER);
+		DECLARE result ROW;
+		SET result = PASSTHRU(query);
+	
+		DECLARE I INTEGER;
+		SET I = CARDINALITY(result.[]);
+	
+		IF (I = 0) THEN
+			SET OutputRoot.JSON.Data.warning = 'User ' || CAST(query_user AS CHARACTER) || ' did not borrow this book ' || CAST(query_book AS CHARACTER) || '!';
+		ELSE
+			DECLARE cur_date DATE CURRENT_DATE;
+			INSERT INTO Database.big.borrow_history (user_id, book_id, returned_date)
+        	VALUES (query_user, query_book, cur_date);
+        	
+        	DELETE FROM Database.big.borrowed_books AS borrowed WHERE borrowed.book_id = query_book AND borrowed.user_id = query_user;
+        	
+        	SET OutputRoot.JSON.Data.success = 'Book ' || CAST(query_book AS CHARACTER) || ' returned successfully';
+		END IF;		
+                
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;
