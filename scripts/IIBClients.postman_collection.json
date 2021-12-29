@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "2039b526-6f77-474a-b61d-421beaa8e623",
+		"name": "IIBClients",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "clientToTheClient",
+			"item": [
+				{
+					"name": "CALL API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7800/callclient?id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7800",
+							"path": [
+								"callclient"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7800/callclient",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7800",
+							"path": [
+								"callclient"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get One Client",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7800/bookstore/clients/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7800",
+					"path": [
+						"bookstore",
+						"clients",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Clients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7800/bookstore/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7800",
+					"path": [
+						"bookstore",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Client",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"AddClientRequest\": {\r\n\t\t\"details\" :\t{\r\n            \"name\":\"bingo\",\r\n\t\t    \"email\":\"bingo@gmail.com\"\r\n        }\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7800/bookstore/clients",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7800",
+					"path": [
+						"bookstore",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE One Client",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"DeleteClientRequest\": {\r\n\t\t\"details\" :\t{\r\n            \"name\":\"bingo\",\r\n\t\t    \"email\":\"bingo@gmail.com\"\r\n        }\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7800/bookstore/clients/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7800",
+					"path": [
+						"bookstore",
+						"clients",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Client",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"EditClientRequest\": {\r\n\t\t\"details\" :\t{\r\n            \"name\":\"UPDATE\",\r\n\t\t    \"email\":\"updated@gmail.com\"\r\n        }\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7800/bookstore/clients/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7800",
+					"path": [
+						"bookstore",
+						"clients",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
