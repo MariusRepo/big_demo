@@ -1,14 +1,14 @@
-BROKER SCHEMA user
+BROKER SCHEMA error
 
 
-CREATE COMPUTE MODULE crud_user_ws_request
+CREATE COMPUTE MODULE error_handling
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
-		CREATE FIELD OutputRoot.JSON.Data.AddClientRequest.details;
-        DECLARE outRef REFERENCE TO OutputRoot.JSON.Data.AddClientRequest.details;
-           
-            SET outRef.name = 'baba cloanta';
-            SET outRef.email = 'cloanta@gmail.com';
+		-- CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+		
+		SET OutputRoot.XMLNSC.Exception = InputExceptionList;
+		
 		RETURN TRUE;
 	END;
 

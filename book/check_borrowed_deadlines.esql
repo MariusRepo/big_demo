@@ -1,7 +1,7 @@
 BROKER SCHEMA book
 
 
-CREATE COMPUTE MODULE main_check_late
+CREATE COMPUTE MODULE check_borrowed_deadlines
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		

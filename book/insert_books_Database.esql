@@ -1,6 +1,6 @@
 BROKER SCHEMA book
 
-CREATE DATABASE MODULE insert_books_Database
+CREATE DATABASE MODULE insert_books_database
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		

@@ -1,7 +1,7 @@
 BROKER SCHEMA user
 
 
-CREATE COMPUTE MODULE crud_user_Compute
+CREATE COMPUTE MODULE config_user_request
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 				

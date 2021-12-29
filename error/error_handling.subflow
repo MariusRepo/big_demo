@@ -12,8 +12,8 @@
       <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output" location="356,25">
         <translation xmi:type="utility:TranslatableString" key="OutTerminal.Output" bundleName="error/error_handling" pluginId="BIG"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="148,20" computeExpression="esql://routine/error#error_handling_Compute.Main">
-        <translation xmi:type="utility:ConstantString" string="COPY ERROR"/>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="132,20" computeExpression="esql://routine/error#error_handling.Main">
+        <translation xmi:type="utility:ConstantString" string="Process Error"/>
       </nodes>
       <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="242,21" queueName="ERRORQ">
         <translation xmi:type="utility:ConstantString" string="MQ Output"/>

@@ -1,7 +1,7 @@
 BROKER SCHEMA book
 
 
-CREATE COMPUTE MODULE main_evaluate_request
+CREATE COMPUTE MODULE handle_book
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
 		CALL CopyMessageHeaders();

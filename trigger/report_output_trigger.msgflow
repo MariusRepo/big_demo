@@ -7,10 +7,10 @@
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/BIG/icons/full/obj30/report_output_trigger.gif"/>
     <composition>
       <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="32,26" queueName="OUTPUTQ" messageDomainProperty="XMLNSC">
-        <translation xmi:type="utility:ConstantString" string="write_book_deadline"/>
+        <translation xmi:type="utility:ConstantString" string="Write Book Deadline"/>
       </nodes>
       <nodes xmi:type="ComIbmFileOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="171,30" outputDirectory="C:\Users\RC\Desktop\output_file" outputFilename="borrowed_report.xml">
-        <translation xmi:type="utility:ConstantString" string="xml_output"/>
+        <translation xmi:type="utility:ConstantString" string="XML Output"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
     </composition>
