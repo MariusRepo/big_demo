@@ -16,10 +16,10 @@
       <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="379,130" queueName="REMOTEQDEF" destinationQueueManagerName="BIGMANAGER">
         <translation xmi:type="utility:ConstantString" string="Output MQ DB"/>
       </nodes>
-      <nodes xmi:type="ComIbmFileInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="10,70" inputDirectory="C:\Users\RC\Desktop\input_file" filenamePattern="*.xml" messageDomainProperty="XMLNSC" validateTiming="complete" validateMaster="contentAndValue" validateFailureAction="exceptionList">
+      <nodes xmi:type="ComIbmFileInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="10,70" inputDirectory="C:\Users\RC\Desktop\Work IIB\input_file" filenamePattern="*.xml" messageDomainProperty="XMLNSC" validateTiming="complete" validateMaster="contentAndValue" validateFailureAction="exceptionList">
         <translation xmi:type="utility:ConstantString" string="XML Book Input"/>
       </nodes>
-      <nodes xmi:type="ComIbmFileInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_11" location="10,10" inputDirectory="C:\Users\RC\Desktop\input_file" filenamePattern="*.csv" messageDomainProperty="DFDL" messageTypeProperty="{}:csv_input_books" validateTiming="complete" validateMaster="contentAndValue" validateFailureAction="exceptionList">
+      <nodes xmi:type="ComIbmFileInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_11" location="10,10" inputDirectory="C:\Users\RC\Desktop\Work IIB\input_file" filenamePattern="*.csv" messageDomainProperty="DFDL" messageSetProperty="{book_library}" messageTypeProperty="{}:csv_book_input" validateTiming="complete" validateMaster="contentAndValue" validateFailureAction="exceptionList">
         <translation xmi:type="utility:ConstantString" string="CSV Book Input"/>
       </nodes>
       <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="193,51" mappingExpression="msl://{book}#csv_to_xml">

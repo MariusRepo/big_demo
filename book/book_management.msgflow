@@ -2,14 +2,14 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmWSInput.msgnode="ComIbmWSInput.msgnode" xmlns:ComIbmWSReply.msgnode="ComIbmWSReply.msgnode" xmlns:book_books_handling.subflow="book/books_handling.subflow" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:error_error_handling.subflow="error/error_handling.subflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="book/book_management.msgflow" nsPrefix="book_book_management.msgflow">
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
-    <translation xmi:type="utility:TranslatableString" key="book_management" bundleName="book/book_management" pluginId="BIG"/>
-    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/BIG/icons/full/obj16/book_management.gif"/>
-    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/BIG/icons/full/obj30/book_management.gif"/>
+    <translation xmi:type="utility:TranslatableString" key="book_management" bundleName="book/book_management" pluginId="BOOK_STORE"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/BOOK_STORE/icons/full/obj16/book_management.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/BOOK_STORE/icons/full/obj30/book_management.gif"/>
     <composition>
       <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="42,121" URLSpecifier="/books" parseQueryString="true" messageDomainProperty="JSON">
         <translation xmi:type="utility:ConstantString" string="Books Endpoint"/>
       </nodes>
-      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="383,117">
+      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="381,118">
         <translation xmi:type="utility:ConstantString" string="HTTP Reply"/>
       </nodes>
       <nodes xmi:type="error_error_handling.subflow:FCMComposite_1" xmi:id="FCMComposite_1_3" location="227,39">
