@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="trigger" version="8.0.5.0" xmlns:map="trigger">
+    <input path="mbsharedlib://book_library/input_borrowed_report.xsd"/>
+    <output path="/COBOLReport/out_borrowed.mxsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="report_output_trigger_xml_cobol">
+        <input path="mb:msg(entries,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_entries"/>
+        <output path="mb:msg(msg_BOOKS,assembly,MRM,Properties)" var="ComIbmMessageAssembly_msg_BOOKS"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_entries/Properties"/>
+            <output path="$ComIbmMessageAssembly_msg_BOOKS/Properties"/>
+            <override>
+                <assign value="COBOLReport">
+                    <output path="$ComIbmMessageAssembly_msg_BOOKS/Properties/MessageSet"/>
+                </assign>
+                <assign value="{}:msg_BOOKS">
+                    <output path="$ComIbmMessageAssembly_msg_BOOKS/Properties/MessageType"/>
+                </assign>
+                <assign value="Binary1">
+                    <output path="$ComIbmMessageAssembly_msg_BOOKS/Properties/MessageFormat"/>
+                </assign>
+            </override>
+        </move>
+        <foreach>
+            <input path="$ComIbmMessageAssembly_entries/entries/entry" var="entry"/>
+            <output path="$ComIbmMessageAssembly_msg_BOOKS/msg_BOOKS/BOOK"/>
+            <move>
+                <input path="$entry/name"/>
+                <output path="BNAME"/>
+            </move>
+            <move>
+                <input path="$entry/email"/>
+                <output path="BEMAIL"/>
+            </move>
+            <move>
+                <input path="$entry/title"/>
+                <output path="BTITLE"/>
+            </move>
+            <move>
+                <input path="$entry/author"/>
+                <output path="BAUTH"/>
+            </move>
+            <move>
+                <input path="$entry/return_date"/>
+                <output path="BBORROWEDDATE"/>
+            </move>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>

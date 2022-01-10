@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="book" version="8.0.5.0" xmlns:map="book">
-    <input path="mbsharedlib://book_library/book/insert_book.xsd"/>
+    <input path="mbsharedlib://book_library/book_model/csv_book_input.xsd"/>
     <output path="mbsharedlib://book_library/book/insert_book.xsd"/>
     <generation engine="xquery"/>
     <mappingDeclaration name="csv_to_xml">
-        <input path="mb:msg(books,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_books"/>
-        <output path="mb:msg(books,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_books1"/>
+        <input path="mb:msg(csv_book_input,assembly,DFDL,Properties)" var="ComIbmMessageAssembly_csv_book_input"/>
+        <output path="mb:msg(books,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_books"/>
         <move>
-            <input path="$ComIbmMessageAssembly_books/Properties"/>
-            <output path="$ComIbmMessageAssembly_books1/Properties"/>
+            <input path="$ComIbmMessageAssembly_csv_book_input/Properties"/>
+            <output path="$ComIbmMessageAssembly_books/Properties"/>
             <override>
                 <assign value="{book_library}">
-                    <output path="$ComIbmMessageAssembly_books1/Properties/MessageSet"/>
+                    <output path="$ComIbmMessageAssembly_books/Properties/MessageSet"/>
                 </assign>
             </override>
         </move>
         <move>
-            <input path="$ComIbmMessageAssembly_books/books/book/name"/>
-            <output path="$ComIbmMessageAssembly_books1/books/book/name"/>
+            <input path="$ComIbmMessageAssembly_csv_book_input/csv_book_input/record/name"/>
+            <output path="$ComIbmMessageAssembly_books/books/book/name"/>
         </move>
         <move>
-            <input path="$ComIbmMessageAssembly_books/books/book/author"/>
-            <output path="$ComIbmMessageAssembly_books1/books/book/author"/>
+            <input path="$ComIbmMessageAssembly_csv_book_input/csv_book_input/record/author"/>
+            <output path="$ComIbmMessageAssembly_books/books/book/author"/>
         </move>
         <move>
-            <input path="$ComIbmMessageAssembly_books/books/book/price"/>
-            <output path="$ComIbmMessageAssembly_books1/books/book/price"/>
+            <input path="$ComIbmMessageAssembly_csv_book_input/csv_book_input/record/price"/>
+            <output path="$ComIbmMessageAssembly_books/books/book/price"/>
         </move>
     </mappingDeclaration>
 </mappingRoot>
