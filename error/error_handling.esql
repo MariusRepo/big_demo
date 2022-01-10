@@ -4,25 +4,68 @@ BROKER SCHEMA error
 CREATE COMPUTE MODULE error_handling
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
-		-- CALL CopyMessageHeaders();
-		-- CALL CopyEntireMessage();
+	
+		DECLARE error ROW;
+
+		DECLARE errorRef REFERENCE TO error;
 		
-		SET OutputRoot.XMLNSC.Exception = InputExceptionList;
+		CALL GetException(InputExceptionList, errorRef);
+		
+		IF(FIELDNAME(InputRoot.[<])='XMLNSC') THEN
+			CREATE FIELD OutputRoot.XMLNSC.ErrorDetails;
+			DECLARE outref REFERENCE TO OutputRoot.XMLNSC.ErrorDetails;
+			
+			SET outref.TimeStamp=CAST(CURRENT_TIMESTAMP AS CHAR FORMAT 'dd-MMM-yyyy HH:mm:ss');
+			SET outref.ExceptionCode=errorRef.ErrorCode;
+			SET outref.ExceptionType=errorRef.ExceptionType ;
+			SET outref.ExceptionMessage=errorRef.ErrorMessage ;
+			SET outref.ExceptionLocation=errorRef.ErrorLocation ;
+		
+		ELSEIF(CONTAINS(InputRoot.HTTPInputHeader."X-Original-HTTP-Command",'GET') OR FIELDNAME(InputRoot.[<])='JSON') THEN
+			CREATE FIELD OutputRoot.JSON.Data.ErrorDetails;
+			DECLARE outref REFERENCE TO OutputRoot.JSON.Data.ErrorDetails;
+			
+			SET outref.TimeStamp=CAST(CURRENT_TIMESTAMP AS CHAR FORMAT 'dd-MMM-yyyy HH:mm:ss');
+			SET outref.ExceptionCode=errorRef.ErrorCode;
+			SET outref.ExceptionType=errorRef.ExceptionType ;
+			SET outref.ExceptionMessage=errorRef.ErrorMessage ;
+			SET outref.ExceptionLocation=errorRef.ErrorLocation ;
+			
+			-- ELSEIF(FIELDNAME(InputRoot.[<])='SOAP') THEN
+			--
+			-- CREATE FIELD OutputRoot.SOAP.Body.ns:Fault;
+			-- DECLARE outref REFERENCE TO OutputRoot.SOAP.Body.ns:Fault;
+			-- SET outref.TimeStamp=CAST(CURRENT_TIMESTAMP AS CHAR FORMAT 'dd-MMM-yyyy HH:mm:ss');
+			-- SET outref.faultcode='Server';
+			-- SET outref.faultstring='Exception Occured During Processing' ;
+			-- SET outref.detail.TimeStamp=CAST(CURRENT_TIMESTAMP AS CHAR FORMAT 'dd-MMM-yyyy HH:mm:ss');
+			-- SET outref.detail.ExceptionCode=errorRef.ErrorCode;
+			-- SET outref.detail.ExceptionType=errorRef.ExceptionType ;
+			-- SET outref.detail.ExceptionMessage=errorRef.ErrorMessage ;
+			-- SET outref.detail.ExceptionLocation=errorRef.ErrorLocation ;
+		END IF;
 		
 		RETURN TRUE;
 	END;
 
-	CREATE PROCEDURE CopyMessageHeaders() BEGIN
-		DECLARE I INTEGER 1;
-		DECLARE J INTEGER;
-		SET J = CARDINALITY(InputRoot.*[]);
-		WHILE I < J DO
-			SET OutputRoot.*[I] = InputRoot.*[I];
-			SET I = I + 1;
+	CREATE PROCEDURE GetException(IN InputExceptionList REFERENCE,IN errorRef REFERENCE ) BEGIN
+	
+		DECLARE inExRef REFERENCE TO InputExceptionList.[1];
+		
+		WHILE ENDSWITH(FIELDNAME(inExRef),'Exception') DO
+			SET errorRef.ErrorCode =inExRef.Number;
+			SET errorRef.ExceptionType =FIELDNAME(inExRef);
+			SET errorRef.ErrorMessage =inExRef.Text;
+			
+			FOR insertRef as inExRef.Insert[] DO
+			SET errorRef.ErrorMessage =errorRef.ErrorMessage || ', ' ||insertRef.Text||', ';
+			END FOR;
+			
+			IF(inExRef.Label<>'') THEN
+				SET errorRef.ErrorLocation = inExRef.Label;
+			END IF;
+			Move inExRef LASTCHILD;
 		END WHILE;
 	END;
 
-	CREATE PROCEDURE CopyEntireMessage() BEGIN
-		SET OutputRoot = InputRoot;
-	END;
 END MODULE;
