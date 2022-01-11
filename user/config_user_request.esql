@@ -9,10 +9,10 @@ CREATE COMPUTE MODULE config_user_request
             DECLARE id CHAR;
             SET id = InputLocalEnvironment.HTTP.Input.QueryString.id;
             SET OutputLocalEnvironment.Destination.HTTP.RequestLine.Method = 'GET';
-            SET OutputLocalEnvironment.Destination.HTTP.RequestURL = 'http://localhost:7080/bookstore/clients/' || id;
+            SET OutputLocalEnvironment.Destination.HTTP.RequestURL = 'https://localhost:7788/bookstore/clients/' || id;
                       
         ELSEIF CONTAINS(InputRoot.HTTPInputHeader."X-Original-HTTP-Command", 'POST') THEN
-            SET OutputLocalEnvironment.Destination.HTTP.RequestURL = 'http://localhost:7080/bookstore/clients';
+            SET OutputLocalEnvironment.Destination.HTTP.RequestURL = 'https://localhost:7788/bookstore/clients';
            
             SET OutputLocalEnvironment.Destination.HTTP.RequestLine.Method = 'POST';
             CREATE FIELD OutputRoot.JSON.Data.AddClientRequest.details;
