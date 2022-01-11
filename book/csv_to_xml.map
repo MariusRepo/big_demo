@@ -16,15 +16,15 @@
         </move>
         <move>
             <input path="$ComIbmMessageAssembly_csv_book_input/csv_book_input/record/name"/>
-            <output path="$ComIbmMessageAssembly_books/books/book/name"/>
+            <output path="$ComIbmMessageAssembly_books/books/book/book_name"/>
         </move>
         <move>
             <input path="$ComIbmMessageAssembly_csv_book_input/csv_book_input/record/author"/>
-            <output path="$ComIbmMessageAssembly_books/books/book/author"/>
+            <output path="$ComIbmMessageAssembly_books/books/book/book_author"/>
         </move>
         <move>
             <input path="$ComIbmMessageAssembly_csv_book_input/csv_book_input/record/price"/>
-            <output path="$ComIbmMessageAssembly_books/books/book/price"/>
+            <output path="$ComIbmMessageAssembly_books/books/book/book_price"/>
         </move>
     </mappingDeclaration>
 </mappingRoot>
