@@ -12,7 +12,7 @@ CREATE COMPUTE MODULE check_borrowed_deadlines
 		'FROM big.borrowed_books AS borrowed ' || 
 		'INNER JOIN big.clients AS clients ON clients.id = borrowed.user_id ' ||
 		'INNER JOIN big.book as book ON book.id = borrowed.book_id ' || 
-		'WHERE return_date >= ' || CAST(cur_date AS CHARACTER);		
+		'WHERE return_date <= ' || CAST(cur_date AS CHARACTER);		
 		
 		DECLARE result ROW;
 		SET result.entry[] = PASSTHRU(query);
@@ -23,9 +23,9 @@ CREATE COMPUTE MODULE check_borrowed_deadlines
 		IF (I = 0) THEN
 			RETURN FALSE;
 		ELSE			  						    
-      		SET OutputRoot.XMLNSC.entries.entry[] = result.entry[];
+      		SET OutputRoot.XMLNSC.entries.entry[] = result.entry[];      		
 		END IF;
-		
+
 		RETURN TRUE;
 	END;
 	

@@ -58,7 +58,7 @@ CREATE COMPUTE MODULE error_handling
 			SET errorRef.ErrorMessage =inExRef.Text;
 			
 			FOR insertRef as inExRef.Insert[] DO
-			SET errorRef.ErrorMessage =errorRef.ErrorMessage || ', ' ||insertRef.Text||', ';
+				SET errorRef.ErrorMessage =errorRef.ErrorMessage || ', ' ||insertRef.Text||', ';
 			END FOR;
 			
 			IF(inExRef.Label<>'') THEN
