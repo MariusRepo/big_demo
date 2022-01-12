@@ -23,9 +23,9 @@ CREATE COMPUTE MODULE check_borrowed_deadlines
 		IF (I = 0) THEN
 			RETURN FALSE;
 		ELSE			  						    
-      		SET OutputRoot.XMLNSC.entries.entry[] = result.entry[];
+      		SET OutputRoot.XMLNSC.entries.entry[] = result.entry[];      		
 		END IF;
-		
+
 		RETURN TRUE;
 	END;
 	
