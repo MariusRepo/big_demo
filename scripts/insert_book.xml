@@ -6,7 +6,7 @@
 		<book_price>10</book_price>	
 	</book>	
 	<book>
-		<book_title>HARRY POTTER</book_title>
+		<book_name>HARRY POTTER</book_name>
 		<book_author>J. K. ROWLING</book_author>
 		<book_price>20</book_price>	
 	</book>

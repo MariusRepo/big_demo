@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "39ffa973-30ed-43b9-bfe1-e05959d3acb6",
+		"name": "BIG DEMO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ClientAPI",
+			"item": [
+				{
+					"name": "GET Bookstore Client by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7080/bookstore/clients/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"bookstore",
+								"clients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET All Bookstore Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7080/bookstore/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"bookstore",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE Bookstore Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"AddClientRequest\": {\r\n\t\t\"details\" :\t{\r\n            \"name\":\"defrtyrt5y56hr\",\r\n\t\t    \"email\":\"te34g4st@gm3g34ail.com\"\r\n        }\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/bookstore/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"bookstore",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Bookstore Client",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"DeleteClientRequest\": {\r\n\t\t\"details\" :\t{\r\n            \"name\":\"gdfgdfgdfgdf\",\r\n\t\t    \"email\":\"tesfdgdfgdfgdfgdt@gmail.com\"\r\n        }\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/bookstore/clients/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"bookstore",
+								"clients",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Bookstore Client",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"EditClientRequest\": {\r\n\t\t\"details\" :\t{\r\n            \"name\":\"55555555555\",\r\n\t\t    \"email\":\"5555@gma555555il.com\"\r\n        }\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/bookstore/clients/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"bookstore",
+								"clients",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BooksAPI",
+			"item": [
+				{
+					"name": "SEARCH Books by TITLE or AUTHOR",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7080/books?query=lord",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "lord"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BORROW Books",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": 1,\r\n    \"book\": 5,\r\n    \"days\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RETURN Book",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": 1,\r\n    \"book\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ERROR",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": 1,\r\n    \"book\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7080/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7080",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

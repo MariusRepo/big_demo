@@ -1,6 +1,5 @@
 BROKER SCHEMA error
 
-
 CREATE COMPUTE MODULE error_handling
 	CREATE FUNCTION Main() RETURNS BOOLEAN
 	BEGIN
@@ -30,19 +29,7 @@ CREATE COMPUTE MODULE error_handling
 			SET outref.ExceptionType=errorRef.ExceptionType ;
 			SET outref.ExceptionMessage=errorRef.ErrorMessage ;
 			SET outref.ExceptionLocation=errorRef.ErrorLocation ;
-			
-			-- ELSEIF(FIELDNAME(InputRoot.[<])='SOAP') THEN
-			--
-			-- CREATE FIELD OutputRoot.SOAP.Body.ns:Fault;
-			-- DECLARE outref REFERENCE TO OutputRoot.SOAP.Body.ns:Fault;
-			-- SET outref.TimeStamp=CAST(CURRENT_TIMESTAMP AS CHAR FORMAT 'dd-MMM-yyyy HH:mm:ss');
-			-- SET outref.faultcode='Server';
-			-- SET outref.faultstring='Exception Occured During Processing' ;
-			-- SET outref.detail.TimeStamp=CAST(CURRENT_TIMESTAMP AS CHAR FORMAT 'dd-MMM-yyyy HH:mm:ss');
-			-- SET outref.detail.ExceptionCode=errorRef.ErrorCode;
-			-- SET outref.detail.ExceptionType=errorRef.ExceptionType ;
-			-- SET outref.detail.ExceptionMessage=errorRef.ErrorMessage ;
-			-- SET outref.detail.ExceptionLocation=errorRef.ErrorLocation ;
+
 		END IF;
 		
 		RETURN TRUE;

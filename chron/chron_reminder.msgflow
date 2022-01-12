@@ -9,10 +9,10 @@
       <nodes xmi:type="ComIbmTimeoutNotification.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="16,36" uniqueIdentifier="reminder" timeoutInterval="10">
         <translation xmi:type="utility:ConstantString" string="Timeout Notification (10)"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="173,36" dataSource="MY_DSN" computeExpression="esql://routine/book#check_borrowed_deadlines.Main">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="181,36" dataSource="MY_DSN" computeExpression="esql://routine/book#check_borrowed_deadlines.Main">
         <translation xmi:type="utility:ConstantString" string="Check Borrowed Books"/>
       </nodes>
-      <nodes xmi:type="ComIbmFileOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="379,41" outputDirectory="C:\Users\admin\Desktop\borrowed reports" outputFilename="expired_deadlines.xml">
+      <nodes xmi:type="ComIbmFileOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="363,40" outputDirectory="C:\Users\admin\Desktop\borrowed reports" outputFilename="expired_deadlines.xml">
         <translation xmi:type="utility:ConstantString" string="File Output"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_1" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>

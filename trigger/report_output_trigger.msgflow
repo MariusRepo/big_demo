@@ -9,11 +9,11 @@
       <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="8,27" queueName="OUTPUTQ" messageDomainProperty="XMLNSC">
         <translation xmi:type="utility:ConstantString" string="Write Book Deadline"/>
       </nodes>
-      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="177,91" mappingExpression="msl://{trigger}#report_output_trigger_xml_cobol">
-        <translation xmi:type="utility:ConstantString" string="Mapping"/>
+      <nodes xmi:type="ComIbmMSLMapping.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="159,91" mappingExpression="msl://{trigger}#report_output_trigger_xml_cobol">
+        <translation xmi:type="utility:ConstantString" string="XML to COBOL"/>
       </nodes>
       <nodes xmi:type="error_error_handling.subflow:FCMComposite_1" xmi:id="FCMComposite_1_2" location="306,18">
-        <translation xmi:type="utility:ConstantString" string="error_handling"/>
+        <translation xmi:type="utility:ConstantString" string="Error Handling"/>
       </nodes>
       <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="314,95" queueName="COBOLQ">
         <translation xmi:type="utility:ConstantString" string="MQ Output"/>

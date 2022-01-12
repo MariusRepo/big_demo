@@ -31,6 +31,7 @@ CREATE COMPUTE MODULE borrow_book
 		
 			INSERT INTO Database.big.borrowed_books (user_id, book_id, return_date)
         	VALUES (query_user, query_book, due_date);
+        	SET OutputRoot.JSON.Data.notification = 'BOOK BORROWED SUCCESSFULLY!';	
 		ELSE
 			SET OutputRoot.JSON.Data.warning = 'BOOK NOT AVAILABLE!';	        
 		END IF;

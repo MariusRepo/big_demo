@@ -26,7 +26,7 @@ CREATE TABLE `book` (
   `id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
   `author` varchar(45) NOT NULL,
-  `price` float NOT NULL,
+  `price` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -38,7 +38,7 @@ CREATE TABLE `book` (
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (1,'TEST1','TEST2',10),(2,'LORD OF THE RINGS','J. R. TOLKIEN',10),(3,'LORD OF THE RINGS','adasdadas',10),(4,'HARRY POTTER','J. K. ROWLING',20),(5,'bc','xx',10),(6,'abc','bc',30),(7,'value1','value2',1),(8,'value1','value2',1.2),(9,'LORD OF THE RINGS','J. R. TOLKIEN',10),(10,'HARRY POTTER','J. K. ROWLING',20);
+INSERT INTO `book` VALUES (1,'TEST1','TEST2',10),(2,'LORD OF THE RINGS','J. R. TOLKIEN',10),(3,'LORD OF THE RINGS','adasdadas',10),(4,'HARRY POTTER','J. K. ROWLING',20),(5,'bc','xx',10),(6,'abc','bc',30),(7,'value1','value2',1),(8,'value1','value2',1),(9,'LORD OF THE RINGS','J. R. TOLKIEN',10),(10,'HARRY POTTER','J. K. ROWLING',20);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `borrow_history` (
   `returned_date` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `borrow_history` (
 
 LOCK TABLES `borrow_history` WRITE;
 /*!40000 ALTER TABLE `borrow_history` DISABLE KEYS */;
-INSERT INTO `borrow_history` VALUES (1,1,1,'2021-12-22'),(2,1,1,'2021-12-23'),(3,1,1,'2021-12-22'),(4,1,1,'2021-12-22');
+INSERT INTO `borrow_history` VALUES (1,1,1,'2021-12-22'),(2,1,1,'2021-12-23'),(3,1,1,'2021-12-22'),(4,1,1,'2021-12-22'),(5,1,5,'2022-01-12');
 /*!40000 ALTER TABLE `borrow_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +93,7 @@ CREATE TABLE `borrowed_books` (
 
 LOCK TABLES `borrowed_books` WRITE;
 /*!40000 ALTER TABLE `borrowed_books` DISABLE KEYS */;
-INSERT INTO `borrowed_books` VALUES (1,2,'2021-12-23'),(1,3,'2021-12-23');
+INSERT INTO `borrowed_books` VALUES (1,1,'2022-01-13'),(1,2,'2021-12-23'),(1,3,'2021-12-23'),(1,4,'2022-01-13');
 /*!40000 ALTER TABLE `borrowed_books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +110,7 @@ CREATE TABLE `clients` (
   `email` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,17 +119,9 @@ CREATE TABLE `clients` (
 
 LOCK TABLES `clients` WRITE;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` VALUES (1,'me','dasad@dasa.com'),(2,'to','sdfgd@dfsdf.com');
+INSERT INTO `clients` VALUES (1,'me','dasad@dasa.com'),(2,'to','sdfgd@dfsdf.com'),(3,'123','123'),(4,'123','123'),(5,'55555555555','5555@gma555555il.com'),(8,'baba cloanta','cloanta@gmail.com'),(9,'baba cloanta','cloanta@gmail.com'),(10,'baba cloanta','cloanta@gmail.com'),(13,'bingo','bingo@gmail.com'),(14,'binsdfgefgfgdgdfgdfgdfgo','bingdfgdfgdfgdfdfgdo@gmail.com'),(15,'works','test@gmail.com');
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'big'
---
-
---
--- Dumping routines for database 'big'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -140,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-23 13:55:03
+-- Dump completed on 2022-01-12 14:10:41
