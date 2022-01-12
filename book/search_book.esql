@@ -9,7 +9,7 @@ CREATE COMPUTE MODULE search_book
 		
 		SET search_query = InputLocalEnvironment.HTTP.Input.QueryString.query;
 		
-		SET query = 'SELECT * FROM big.book AS books WHERE books.title LIKE "%' || search_query || '%" OR books.author LIKE "%' || search_query || '"';
+		SET query = 'SELECT * FROM big.book AS books WHERE books.title LIKE "%' || search_query || '%" OR books.author LIKE "%' || search_query || '%"';
 	
 		SET OutputRoot.JSON.Data.books.book[] = PASSTHRU(query);
 

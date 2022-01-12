@@ -6,8 +6,8 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/big_demo/icons/full/obj16/chron_reminder.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/big_demo/icons/full/obj30/chron_reminder.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmTimeoutNotification.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="16,36" uniqueIdentifier="reminder" timeoutInterval="10">
-        <translation xmi:type="utility:ConstantString" string="Timeout Notification (10)"/>
+      <nodes xmi:type="ComIbmTimeoutNotification.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="16,36" uniqueIdentifier="reminder" timeoutInterval="1000">
+        <translation xmi:type="utility:ConstantString" string="Chron trigger (30s)"/>
       </nodes>
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="181,36" dataSource="MY_DSN" computeExpression="esql://routine/book#check_borrowed_deadlines.Main">
         <translation xmi:type="utility:ConstantString" string="Check Borrowed Books"/>

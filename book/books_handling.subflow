@@ -30,7 +30,7 @@
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="407,84" dataSource="big" computeExpression="esql://routine/book#borrow_book.Main">
         <translation xmi:type="utility:ConstantString" string="borrow_book"/>
       </nodes>
-      <nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="370,238" labelName="error">
+      <nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="366,239" labelName="error">
         <translation xmi:type="utility:ConstantString" string="error"/>
       </nodes>
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="409,143" dataSource="big" computeExpression="esql://routine/book#return_book.Main">
