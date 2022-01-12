@@ -3,9 +3,9 @@
     nsURI="book/insert_book.msgflow" nsPrefix="book_insert_book.msgflow">
   <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
     <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
-    <translation xmi:type="utility:TranslatableString" key="insert_book" bundleName="book/insert_book" pluginId="BIG"/>
-    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/BIG/icons/full/obj16/insert_book.gif"/>
-    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/BIG/icons/full/obj30/insert_book.gif"/>
+    <translation xmi:type="utility:TranslatableString" key="insert_book" bundleName="book/insert_book" pluginId="big_demo"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/big_demo/icons/full/obj16/insert_book.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/big_demo/icons/full/obj30/insert_book.gif"/>
     <composition>
       <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,130" queueName="INSERTQ" messageDomainProperty="XMLNSC" validateTiming="complete" validateMaster="contentAndValue" validateFailureAction="exceptionList">
         <translation xmi:type="utility:ConstantString" string="MQ Book Input"/>

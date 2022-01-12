@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <books>
 	<book>
-		<book_name>LORD OF THE RINGS</book_name>
+		<book_name>LORD OF THE RINGS</book_title>
 		<book_author>J. R. TOLKIEN</book_author>
 		<book_price>10</book_price>	
 	</book>	
